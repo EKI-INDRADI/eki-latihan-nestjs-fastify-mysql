@@ -226,7 +226,7 @@ await app.listen(3000, '0.0.0.0'); // global ip
 
 update src\produk\produk.controller.ts
 
----sebelum
+---sebelum_0
 import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake default nestJs aja
 
   @Post('/produk-manual-query')
@@ -239,9 +239,9 @@ import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake
    return this.produkService.GetProduk(req.body)
   }
 
----/sebelum
+---/sebelum_0
 
----sesudah
+---sesudah_0
 // import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake default nestJs aja
 
   @Post('/produk-manual-query')
@@ -253,7 +253,7 @@ import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake
 
    return this.produkService.GetProduk(req_body)
   }
----/sesudah
+---/sesudah_0
 
 
   update src\produk\dto\create-produk.dto.ts
@@ -273,7 +273,7 @@ export class ProdukDto {
     foto: string
 ---/sesudah_2
 
-updatesrc\produk\produk.controller.ts
+update src\produk\produk.controller.ts
 
 ---sebelum_2
   import { FileInterceptor } from  '@nestjs/platform-express';
