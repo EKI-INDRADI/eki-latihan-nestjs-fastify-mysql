@@ -226,7 +226,7 @@ await app.listen(3000, '0.0.0.0'); // global ip
 
 update src\produk\produk.controller.ts
 
----sebelumnya
+---sebelum
 import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake default nestJs aja
 
   @Post('/produk-manual-query')
@@ -239,7 +239,7 @@ import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake
    return this.produkService.GetProduk(req.body)
   }
 
----/sebelumnya
+---/sebelum
 
 ---sesudah
 // import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake default nestJs aja
@@ -254,6 +254,98 @@ import { Request } from 'express'; //MANUAL QUERY ganti request express nya pake
    return this.produkService.GetProduk(req_body)
   }
 ---/sesudah
+
+
+  update src\produk\dto\create-produk.dto.ts
+
+---sebelum_1
+export class ProdukDto {
+  ...
+  ...
+    @ApiProperty({ format: 'binary' })
+    @IsOptional()
+    foto: string
+---/sebelum_1
+
+---sesudah_2
+    @ApiProperty() 
+    @IsOptional()
+    foto: string
+---/sesudah_2
+
+updatesrc\produk\produk.controller.ts
+
+---sebelum_2
+  import { FileInterceptor } from  '@nestjs/platform-express';
+  import { diskStorage } from 'multer';
+
+  @Post() 
+  @UseInterceptors(FileInterceptor('foto', {
+       storage: diskStorage({ 
+         destination: './assets/produk',
+         filename: (req: any, file, cb) => {
+           let number_user_id = Number(req.user.id)
+           let eki_auto_generate = "PD"
+             + new Date().getFullYear() 
+             + ("0" + (new Date().getMonth() + 1)).slice(-2) //+ "-"
+             + ("0" + new Date().getDate()).slice(-2) + "-"
+             + "USR" + number_user_id.toString().padStart((String(number_user_id).length > 4) ? String(number_user_id).length : 4, '0') + "-"
+             + Date.now()
+
+           cb(null, eki_auto_generate + extname(file.originalname))
+       }
+     })
+   }))
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({ type: CreateProdukDto })
+  create(@InjectUser() createProdukDto: CreateProdukDto, @UploadedFile() foto: Express.Multer.File) {
+    createProdukDto.foto = foto.filename //DISABLE FASTIFY ADAPTER
+    return this.produkService.create(createProdukDto);
+  }
+---/sebelum_2
+
+---sesudah_2
+  @Post()
+  @ApiBody({ type: CreateProdukDto })
+  create(@InjectUser() createProdukDto: CreateProdukDto) { 
+    return this.produkService.create(createProdukDto);
+  }
+---/sesudah_2
+
+---sebelum_3
+ @Patch(':id')
+  @UseInterceptors(FileInterceptor('foto', {
+    storage: diskStorage({
+      destination: './assets/produk',
+      filename: (req: any, file, cb) => {
+        let number_user_id = Number(req.user.id)
+        let eki_auto_generate = "PD"
+          + new Date().getFullYear()
+          + ("0" + (new Date().getMonth() + 1)).slice(-2)
+          + ("0" + new Date().getDate()).slice(-2) + "-"
+          + "USR" + number_user_id.toString().padStart((String(number_user_id).length > 4) ? String(number_user_id).length : 4, '0') + "-"
+          + Date.now()
+        cb(null, eki_auto_generate + extname(file.originalname))
+      }
+    })
+  }))
+  @ApiConsumes('multipart/form-data') 
+  @ApiBody({ type: UpdateProdukDto }) 
+  update(@Param('id') id: string, @InjectUser() updateProdukDto: UpdateProdukDto, @UploadedFile() foto: Express.Multer.File) {
+     if (foto) {
+       updateProdukDto.foto = foto.filename
+    }
+    return this.produkService.update(+id, updateProdukDto);
+  }
+---/sebelum_3
+
+---sesudah_3
+  @Patch(':id')
+  @ApiBody({ type: UpdateProdukDto })
+  update(@Param('id') id: string, @InjectUser() updateProdukDto: UpdateProdukDto) {
+    return this.produkService.update(+id, updateProdukDto);
+  }
+---/sesudah_3
 
 
 //=========================== WAJIB REBUILD DIST FILE

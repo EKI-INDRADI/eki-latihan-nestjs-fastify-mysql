@@ -4,8 +4,10 @@ import { CreateProdukDto, FindProdukDto, ProdukIdDto, ResponProdukDto } from './
 import { UpdateProdukDto } from './dto/update-produk.dto';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtGuard } from 'src/auth/jwt.guard';
+// =========================== DISABLE FASTIFY ADAPTER
 // import { FileInterceptor } from  '@nestjs/platform-express'; //DISABLE FASTIFY ADAPTER
-import { diskStorage } from 'multer';
+// import { diskStorage } from 'multer';
+// =========================== /DISABLE FASTIFY ADAPTER
 import { InjectUser } from 'src/etc/decorator/inject-user.decorator';
 // import { extname } from 'path/posix'; // rename 'path/posix' to 'path'
 import { extname } from 'path';
@@ -43,8 +45,9 @@ export class ProdukController {
   // =========================== /DISABLE FASTIFY ADAPTER
   @ApiBody({ type: CreateProdukDto }) // karena swagger ada perubahan multipart maka Request Body nya perlu disesuaikan lagi
   // create(@Body() createProdukDto: CreateProdukDto, @UploadedFile() foto: Express.Multer.File) { // SEBELUM INJECT USER
-  create(@InjectUser() createProdukDto: CreateProdukDto, @UploadedFile() foto: Express.Multer.File) { // SETELAH INJECT USER
-    createProdukDto.foto = foto.filename
+  // create(@InjectUser() createProdukDto: CreateProdukDto, @UploadedFile() foto: Express.Multer.File) {  //DISABLE FASTIFY ADAPTER
+  create(@InjectUser() createProdukDto: CreateProdukDto) { // SETELAH INJECT USER
+    // createProdukDto.foto = foto.filename //DISABLE FASTIFY ADAPTER
     return this.produkService.create(createProdukDto);
   }
 
@@ -84,10 +87,11 @@ export class ProdukController {
   // ===========================/DISABLE FASTIFY ADAPTER
   @ApiBody({ type: UpdateProdukDto }) // CLASS VALIDATOR BUG FIX : NEW BUG FIX
   // update(@Param('id') id: string, @Body() updateProdukDto: UpdateProdukDto) { // sebelum  update upload file
-  update(@Param('id') id: string, @InjectUser() updateProdukDto: UpdateProdukDto, @UploadedFile() foto: Express.Multer.File) {
-    if (foto) {
-      updateProdukDto.foto = foto.filename
-    }
+  // update(@Param('id') id: string, @InjectUser() updateProdukDto: UpdateProdukDto, @UploadedFile() foto: Express.Multer.File) { //DISABLE FASTIFY ADAPTER
+  update(@Param('id') id: string, @InjectUser() updateProdukDto: UpdateProdukDto) {
+    // if (foto) {
+    //   updateProdukDto.foto = foto.filename
+    // }
     return this.produkService.update(+id, updateProdukDto);
   }
 

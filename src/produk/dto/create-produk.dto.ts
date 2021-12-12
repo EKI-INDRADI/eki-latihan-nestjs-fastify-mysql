@@ -38,7 +38,8 @@ export class ProdukDto {
     @IsNotEmpty()
     harga_jual: number
 
-    @ApiProperty({ format: 'binary' })  // untuk merubah menjadi file upload
+    // @ApiProperty({ format: 'binary' })  // untuk merubah menjadi file upload  //DISABLE FASTIFY ADAPTER
+    @ApiProperty() 
     @IsOptional() // jangan setting ke string
     foto: string
 
