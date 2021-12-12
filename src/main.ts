@@ -50,7 +50,7 @@ async function bootstrap() {
   // api-docs = routes
   //============== /SWAGGER
   // await app.listen(3000); // 127.0.0.1/localhost
-  await app.listen(3001, '0.0.0.0'); // global ip
+  await app.listen(3000, '0.0.0.0'); // global ip
 }
 bootstrap();
 
