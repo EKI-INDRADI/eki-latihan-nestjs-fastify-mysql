@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "f432468e-7df9-4fa4-9420-8b73aacd9900",
+		"name": "RND - NESTJS - MYSQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGFtcGlsa2FuX3NlbXVhX3BheWxvYWQiOnsiaWQiOjEsImxvZ2luQ29udHJvbGxlcl9wYXlsb2FkIjp7ImlkIjoxLCJuYW1hX3VzZXIiOiJhZG1pbjIwMjEiLCJlbWFpbCI6ImFkbWluMjAyMUBlbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMjAyMSIsInBhc3N3b3JkIjoiJDJiJDEwJDJla25OZURxbDBJOTgxaUVVNXgydnVIMlZ0VGxXWEU1cGFVRFF5WFFSWGJJcnNpVHFRc3lXIiwiY3JlYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIiwidXBkYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIn19LCJpYXQiOjE2MzI2NDY0NTEsImV4cCI6MTYzMjY4OTY1MX0.dnFxemAzKu4fWjJcxXcHt-_jNMT3ppcR4zvXcPE5jPY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGFtcGlsa2FuX3NlbXVhX3BheWxvYWQiOnsiaWQiOjEsImxvZ2luQ29udHJvbGxlcl9wYXlsb2FkIjp7ImlkIjoxLCJuYW1hX3VzZXIiOiJhZG1pbjIwMjEiLCJlbWFpbCI6ImFkbWluMjAyMUBlbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMjAyMSIsInBhc3N3b3JkIjoiJDJiJDEwJDJla25OZURxbDBJOTgxaUVVNXgydnVIMlZ0VGxXWEU1cGFVRFF5WFFSWGJJcnNpVHFRc3lXIiwiY3JlYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIiwidXBkYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIn19LCJpYXQiOjE2MzI2NDY0NTEsImV4cCI6MTYzMjY4OTY1MX0.dnFxemAzKu4fWjJcxXcHt-_jNMT3ppcR4zvXcPE5jPY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_user\" : \"adminekix\",\r\n    \"email\" : \"adminx@gmail.com\",\r\n    \"username\" : \"adminekix\",\r\n    \"password\" : \"masuk123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGFtcGlsa2FuX3NlbXVhX3BheWxvYWQiOnsiaWQiOjEsImxvZ2luQ29udHJvbGxlcl9wYXlsb2FkIjp7ImlkIjoxLCJuYW1hX3VzZXIiOiJhZG1pbjIwMjEiLCJlbWFpbCI6ImFkbWluMjAyMUBlbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMjAyMSIsInBhc3N3b3JkIjoiJDJiJDEwJDJla25OZURxbDBJOTgxaUVVNXgydnVIMlZ0VGxXWEU1cGFVRFF5WFFSWGJJcnNpVHFRc3lXIiwiY3JlYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIiwidXBkYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIn19LCJpYXQiOjE2MzI2NDY0NTEsImV4cCI6MTYzMjY4OTY1MX0.dnFxemAzKu4fWjJcxXcHt-_jNMT3ppcR4zvXcPE5jPY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_user\" : \"Admin6234\",\r\n    \"email\" : \"adminxx@gmail.com\",\r\n    \"username\" : \"admin2222x\",\r\n    \"password\" : \"masuk123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGFtcGlsa2FuX3NlbXVhX3BheWxvYWQiOnsiaWQiOjEsImxvZ2luQ29udHJvbGxlcl9wYXlsb2FkIjp7ImlkIjoxLCJuYW1hX3VzZXIiOiJhZG1pbjIwMjEiLCJlbWFpbCI6ImFkbWluMjAyMUBlbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMjAyMSIsInBhc3N3b3JkIjoiJDJiJDEwJDJla25OZURxbDBJOTgxaUVVNXgydnVIMlZ0VGxXWEU1cGFVRFF5WFFSWGJJcnNpVHFRc3lXIiwiY3JlYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIiwidXBkYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIn19LCJpYXQiOjE2MzI2NDY0NTEsImV4cCI6MTYzMjY4OTY1MX0.dnFxemAzKu4fWjJcxXcHt-_jNMT3ppcR4zvXcPE5jPY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth get user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGFtcGlsa2FuX3NlbXVhX3BheWxvYWQiOnsiaWQiOjEsImxvZ2luQ29udHJvbGxlcl9wYXlsb2FkIjp7ImlkIjoxLCJuYW1hX3VzZXIiOiJhZG1pbjIwMjEiLCJlbWFpbCI6ImFkbWluMjAyMUBlbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMjAyMSIsInBhc3N3b3JkIjoiJDJiJDEwJDJla25OZURxbDBJOTgxaUVVNXgydnVIMlZ0VGxXWEU1cGFVRFF5WFFSWGJJcnNpVHFRc3lXIiwiY3JlYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIiwidXBkYXRlX2F0IjoiMjAyMS0wOS0yNVQyMzozMTo1MS4zNzZaIn19LCJpYXQiOjE2MzI2NDY0NTEsImV4cCI6MTYzMjY4OTY1MX0.dnFxemAzKu4fWjJcxXcHt-_jNMT3ppcR4zvXcPE5jPY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"admineki\",\r\n    \"password\" : \"masuk123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"admin2021\",\r\n    \"password\" : \"masuk123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

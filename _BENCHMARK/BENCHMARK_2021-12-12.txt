@@ -1,0 +1,8 @@
+npm i autocannon -g
+autocannon -c 100 -d 40 -p 10 localhost:3000 ( express nestjs )
+autocannon -c 100 -d 40 -p 10 localhost:3001 ( fastify nestjs )
+
+
+autocannon -c 100 -d 40 -p 10 localhost:3000
+all result :
+https://github.com/fastify/benchmarks
